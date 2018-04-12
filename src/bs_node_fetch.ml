@@ -1,3 +1,5 @@
+[%%raw "import NodeFetch from 'node-fetch'"]
+
 type body
 type bodyInit
 type headers
@@ -364,7 +366,11 @@ module Response = struct
 end
 
 
-external fetch : string -> response Js.Promise.t = "node-fetch" [@@bs.module]
-external fetchWithInit : string -> requestInit -> response Js.Promise.t = "node-fetch" [@@bs.module]
-external fetchWithRequest : request -> response Js.Promise.t = "node-fetch" [@@bs.module]
-external fetchWithRequestInit : request -> requestInit -> response Js.Promise.t = "node-fetch" [@@bs.module]
+external fetch : string -> response Js.Promise.t = "NodeFetch" [@@bs.val]
+external fetchWithInit : string -> requestInit -> response Js.Promise.t = "NodeFetch" [@@bs.val]
+external fetchWithRequest : request -> response Js.Promise.t = "NodeFetch" [@@bs.val]
+external fetchWithRequestInit : request -> requestInit -> response Js.Promise.t = "NodeFetch" [@@bs.val]
+let fetch = fetch
+let fetchWithInit = fetchWithInit
+let fetchWithRequest = fetchWithRequest
+let fetchWithRequestInit = fetchWithRequestInit
